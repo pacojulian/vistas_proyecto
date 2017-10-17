@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Vistas</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_courses">Courses</string>
+    <string name="title_activity_calendar">Calendar</string>
+    <string-array name="horario">
+        <item>Choose a day</item>
+        <item>Lunes y jueves</item>
+        <item>Martes y viernes</item>
+        <item>Jueves</item>
+        <item>Miercoles</item>
+    </string-array>
+    <string name="title_activity_gallery_course">gallery_course</string>
+    <string name="title_activity_courses_day">courses_day</string>
+</resources>
