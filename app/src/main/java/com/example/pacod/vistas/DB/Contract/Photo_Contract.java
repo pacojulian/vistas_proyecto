@@ -40,6 +40,21 @@ public class Photo_Contract {
         String HORARIO_SALIDA = "horario_salida";
     }
 
+    public static class Photos implements ColumnasPhoto {
+        // Métodos auxiliares
+    }
+    public static class Materia implements ColumnasMateria {
+        // Métodos auxiliares
+    }
+
+    public static class Usuario implements ColumnasUsuario {
+        // Métodos auxiliares
+    }
+    public static class Cursando implements ColumnasCursando {
+        // Métodos auxiliares
+    }
+
+
 
 
 }

@@ -26,7 +26,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     interface Tablas {
         String CURSANDO = "cursando";
-        String MATERIA = "MATERIA";
+        String MATERIA = "materia";
         String PHOTO = "photo";
         String USUARIO= "usuario";
 
@@ -50,9 +50,29 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
 
         db.execSQL(String.format("CREATE TABLE %s ( %s INTEGER PRIMARY KEY AUTOINCREMENT," +
-                        "%s TEXT NOT NULL UNIQUE,%s REAL NOT NULL)",
+                        "%s TEXT NOT NULL UNIQUE,%s TEXT NOT NULL,%s TEXT NOT NULL UNIQUE,%s TEXT NOT NULL UNIQUE,%s TEXT NOT NULL UNIQUE,%s TEXT NOT NULL UNIQUE)",
                 Tablas.PHOTO, BaseColumns._ID,
-                , ContratoPedidos.Productos.PRECIO));
+                Photo_Contract.Photos.PATH , Photo_Contract.Photos.FECHA,Photo_Contract.Photos.ID_CURSANDO,
+                Photo_Contract.Photos.ID_USUARIO,Photo_Contract.Photos.ID_MATERIA));
+
+
+        db.execSQL(String.format("CREATE TABLE %s ( %s INTEGER PRIMARY KEY AUTOINCREMENT," +
+                        "%s TEXT NOT NULL UNIQUE,%s TEXT NOT NULL UNIQUE)",
+                Tablas.MATERIA, BaseColumns._ID, Photo_Contract.Materia.NOMBRE,Photo_Contract.Materia.DESCRIPCION));
+
+        db.execSQL(String.format("CREATE TABLE %s ( %s TEXT NOT NULL UNIQUE," +
+                        "%s TEXT NOT NULL UNIQUE,%s TEXT NOT NULL,%s TEXT NOT NULL)",
+                Tablas.MATERIA, Photo_Contract.Usuario.ID_USUARIO, Photo_Contract.Usuario.NOMBRE,Photo_Contract.Usuario.CONTRA,
+                Photo_Contract.Usuario.CORREO));
+
+        db.execSQL(String.format("CREATE TABLE %s ( %s TEXT NOT NULL UNIQUE," +
+                        "%s TEXT NOT NULL UNIQUE,%s TEXT NOT NULL UNIQUE,%s TEXT NOT NULL UNIQUE,%s TEXT NOT NULL UNIQUE,%s TEXT NOT NULL UNIQUE"+
+                "%s TEXT NOT NULL UNIQUE,%s TEXT NOT NULL UNIQUE)",
+                Tablas.MATERIA, Photo_Contract.Cursando.ID_CURSANDO, Photo_Contract.Cursando.ID_USUARIO,Photo_Contract.Cursando.ID_MATERIA,
+                Photo_Contract.Cursando.NOMBRE,Photo_Contract.Cursando.DESCRIPCION,Photo_Contract.Cursando.HORARIO,
+                Photo_Contract.Cursando.HORA_ENTRADA,Photo_Contract.Cursando.HORARIO_SALIDA));
+
+
 
     }
 
