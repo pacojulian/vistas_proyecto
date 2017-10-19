@@ -6,15 +6,31 @@ package com.example.pacod.vistas.DB.Modelo;
 
 public class Usuario {
 
-    public String id_user;
-    public String nombre;
-    public String contra;
-    public String correo;
+    private int id_user;
+    private String nombre;
+    private String contra;
+    private String correo;
 
-    public Usuario(String id_user, String nombre, String contra, String correo) {
+    public Usuario(int id_user, String nombre, String contra, String correo) {
         this.id_user = id_user;
         this.nombre = nombre;
         this.contra = contra;
         this.correo = correo;
+    }
+
+    public int getId_user() {
+        return id_user;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getContra() {
+        return contra;
+    }
+
+    public String getCorreo() {
+        return correo;
     }
 }
