@@ -5,15 +5,15 @@ package com.example.pacod.vistas.DB.Modelo;
  */
 
 public class Materia {
-    private int id_materia;
+    public int id_materia;
     private String nombre;
-    private String descripcion;
 
 
-    public Materia(int id_materia, String nombre, String descripcion) {
+
+    public Materia(int id_materia, String nombre) {
         this.id_materia = id_materia;
         this.nombre = nombre;
-        this.descripcion = descripcion;
+
     }
 
     public int getId_materia() {
@@ -24,7 +24,7 @@ public class Materia {
         return nombre;
     }
 
-    public String getDescripcion() {
-        return descripcion;
+    public void setId_materia(int id_materia) {
+        this.id_materia = id_materia;
     }
 }

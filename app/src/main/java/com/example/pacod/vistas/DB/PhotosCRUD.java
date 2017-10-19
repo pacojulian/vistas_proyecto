@@ -34,7 +34,7 @@ public class PhotosCRUD {
         helper = new DataBaseHelper(context);
     }
 
-    public void newUsuario(Usuario usuario) {
+    public int newUsuario(Usuario usuario) {
         SQLiteDatabase db = helper.getWritableDatabase();
 
         ContentValues values = new ContentValues();
@@ -45,18 +45,19 @@ public class PhotosCRUD {
 
         long newRowId = db.insert(Tablas.USUARIO,null,values);
         db.close();
+        return (int)newRowId;
     }
 
-    public void newMateria(Materia materia) {
+    public int newMateria(Materia materia) {
         SQLiteDatabase db = helper.getWritableDatabase();
 
         ContentValues values = new ContentValues();
         //values.put(Photo_Contract.Materia.ID_MATERIA, materia.getId_materia());
         values.put(Photo_Contract.Materia.NOMBRE, materia.getNombre());
-        values.put(Photo_Contract.Materia.DESCRIPCION,materia.getDescripcion());
 
         long newRowId = db.insert(Tablas.MATERIA,null,values);
         db.close();
+        return (int)newRowId;
     }
 
     public void newCursando(Cursando cursando) {
@@ -144,8 +145,7 @@ public class PhotosCRUD {
         while (cursor.moveToNext()) {
             materias.add(new Materia(
                     cursor.getInt(cursor.getColumnIndexOrThrow(Photo_Contract.Materia.ID_MATERIA)),
-                    cursor.getString(cursor.getColumnIndexOrThrow(Photo_Contract.Materia.NOMBRE)),
-                    cursor.getString(cursor.getColumnIndexOrThrow(Photo_Contract.Materia.DESCRIPCION))
+                    cursor.getString(cursor.getColumnIndexOrThrow(Photo_Contract.Materia.NOMBRE))
             ));
         }
         return materias;
@@ -258,7 +258,7 @@ public class PhotosCRUD {
         ContentValues values = new ContentValues();
         values.put(Photo_Contract.Materia.ID_MATERIA,materia.getId_materia());
         values.put(Photo_Contract.Materia.NOMBRE,materia.getNombre());
-        values.put(Photo_Contract.Materia.DESCRIPCION,materia.getDescripcion());
+
 
         //TODO 19: Actualizamos fila
         //Insterta la nueva fila, regresando el valor de la primary key
@@ -489,7 +489,7 @@ public class PhotosCRUD {
 
         String nombre="";
         String descripcion="";
-        Materia materia = new Materia(id,nombre,descripcion);
+        Materia materia = new Materia(id,nombre);
         SQLiteDatabase db = helper.getReadableDatabase();
         String []columnas = {
                 Photo_Contract.Materia.ID_MATERIA,
@@ -511,8 +511,7 @@ public class PhotosCRUD {
         while (cursor.moveToNext()) {
             materia = new Materia(
                     cursor.getInt(cursor.getColumnIndexOrThrow(Photo_Contract.Materia.ID_MATERIA)),
-                    cursor.getString(cursor.getColumnIndexOrThrow(Photo_Contract.Materia.NOMBRE)),
-                    cursor.getString(cursor.getColumnIndexOrThrow(Photo_Contract.Materia.DESCRIPCION))
+                    cursor.getString(cursor.getColumnIndexOrThrow(Photo_Contract.Materia.NOMBRE))
             );
         }
 

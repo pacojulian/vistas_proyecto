@@ -11,6 +11,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.format.DateFormat;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -20,6 +21,9 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
+
+import com.example.pacod.vistas.DB.Modelo.Materia;
+import com.example.pacod.vistas.DB.PhotosCRUD;
 
 import org.w3c.dom.Text;
 
@@ -40,6 +44,10 @@ public class Courses extends AppCompatActivity {
 
     private EditText ed_nombre;
     private  EditText ed_fecha;
+    /*
+           * Base de Datos
+           * */
+    final PhotosCRUD photos = new PhotosCRUD(Courses.this);
 
 
 
@@ -71,6 +79,12 @@ public class Courses extends AppCompatActivity {
 
         init();
         lv_languages.setAdapter(list_adapter);
+
+
+
+
+
+
 
 
 
@@ -162,7 +176,11 @@ public class Courses extends AppCompatActivity {
                                         , Toast.LENGTH_SHORT).show();
                                 dialog.dismiss();
                             }
-
+                            /*
+                            Si todo Sale bien
+                            * */
+                            int id= photos.newMateria(new Materia(0,v_nombre));
+                            Log.d("ID:",id+"");
                             Toast.makeText(Courses.this,mSpinner.getSelectedItem().toString()+" "
                                     + v_nombre+" "+v_fecha, Toast.LENGTH_SHORT).show();
                             dialog.dismiss();
