@@ -19,6 +19,19 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     private static final int VERSION_ACTUAL = 1;
     private final Context contexto;
 
+
+    interface Referencias {
+
+       /* String ID_CABECERA_PEDIDO = String.format("REFERENCES %s(%s) ON DELETE CASCADE",
+                Tablas.CABECERA_PEDIDO, ContratoPedidos.CabecerasPedido.generarIdCabeceraPedido());
+
+        String ID_PRODUCTO = String.format("REFERENCES %s(%s)",
+                Tablas.PRODUCTO, ContratoPedidos.Productos.generarIdProducto());*/
+
+
+
+
+    }
     public DataBaseHelper(Context contexto) {
         super(contexto, NOMBRE_BASE_DATOS, null, VERSION_ACTUAL);
         this.contexto = contexto;
