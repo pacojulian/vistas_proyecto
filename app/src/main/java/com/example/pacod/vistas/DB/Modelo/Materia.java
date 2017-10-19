@@ -5,11 +5,26 @@ package com.example.pacod.vistas.DB.Modelo;
  */
 
 public class Materia {
-    public String nombre;
-    public String descripcion;
+    private int id_materia;
+    private String nombre;
+    private String descripcion;
 
-    public Materia(String nombre, String descripcion) {
+
+    public Materia(int id_materia, String nombre, String descripcion) {
+        this.id_materia = id_materia;
         this.nombre = nombre;
         this.descripcion = descripcion;
+    }
+
+    public int getId_materia() {
+        return id_materia;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
     }
 }
